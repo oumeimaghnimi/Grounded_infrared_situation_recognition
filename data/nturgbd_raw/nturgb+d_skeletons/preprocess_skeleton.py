@@ -1,7 +1,7 @@
 import sys
 
 sys.path.extend(['../'])
-from data_gen.rotation import *
+from .rotation import *
 from tqdm import tqdm
 
 def pre_normalization2d(data, zaxis=[0, 3], xaxis=[5, 6]):
@@ -109,10 +109,9 @@ def pre_normalization(data, zaxis=[2, 4], xaxis=[5, 6]):
     data = np.transpose(s, [0, 4, 2, 3, 1])
     return data
 
-
+    # arg.out_folder=data/nturgbd_raw/nturgb+d_skeletons/generated_skeleton_ntu/
+    #..data/nturgbd_raw/nturgb+d_skeletons/generated_skeleton_ntu/xview/val_data.npy'
 if __name__ == '__main__':
-    
-    # arg.out_folder=data/nturgbd_raw/nturgb+d_skeletons
     data = np.load('../data/ntu/xview/val_data.npy')
     pre_normalization(data)
     np.save('../data/ntu/xview/data_val_pre.npy', data)
