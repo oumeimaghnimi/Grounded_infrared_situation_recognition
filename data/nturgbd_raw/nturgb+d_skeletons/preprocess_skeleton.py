@@ -111,6 +111,8 @@ def pre_normalization(data, zaxis=[2, 4], xaxis=[5, 6]):
 
 
 if __name__ == '__main__':
+    
+    # arg.out_folder=data/nturgbd_raw/nturgb+d_skeletons
     data = np.load('../data/ntu/xview/val_data.npy')
     pre_normalization(data)
     np.save('../data/ntu/xview/data_val_pre.npy', data)
