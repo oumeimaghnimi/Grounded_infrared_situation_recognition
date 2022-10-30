@@ -3,7 +3,7 @@
 Attention and Scene Understanding(Vidhya Navalpakkam, Michael Arbib and Laurent Itti, University of Southern California, Los Angeles).
 
 
-bash download_backup_annotations.sh ${DATASET}
+
 
 
 
