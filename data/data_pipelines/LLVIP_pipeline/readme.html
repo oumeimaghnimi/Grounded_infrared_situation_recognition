@@ -1,0 +1,10 @@
+LLVIP dataset can contribute to the community of computer vision by promoting image fusion, pedestrian detection and image-to-image translation 
+in very low-light applications （The wavelength: 8~14um (thermal infrared images)):pix2pixGAN, imagefusion_densefuse, FusionGAN
+
+  https://github.com/bupt-ai-cz/LLVIP
+  
+  (2021-12-25): a Kaggle Community Competition "Find Person in the Dark!" based on part of LLVIP dataset: https://www.kaggle.com/c/find-person-in-the-dark.
+  A toolbox is used for various format conversions (xml to yolov5, xml to yolov3, xml to coco):
+  ## xml to yolov5: python xml2txt_yolov5.py --annotation_path path/to/annotations --image_path path/to/images --txt_save_path path/to/txt_save_dir
+  ## xml to yolov3: python xml2txt_yolov3.py --annotation_path path/to/annotations --image_path path/to/images --txt_path path/to/txtfile
+  ## xml to coco:   python voc2coco.py --annotation_path path/to/annotations --json_save_path path/to/jsonfile
