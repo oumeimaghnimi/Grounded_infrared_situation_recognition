@@ -1,0 +1,530 @@
+<html xmlns:tomboy="http://beatniksoftware.com/tomboy" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns:link="http://beatniksoftware.com/tomboy/link"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Note from 2022-10-10 10:28:41.347</title><style type="text/css">
+	body {  }
+	h1 { font-size: xx-large;
+     	     font-weight: bold;
+     	     border-bottom: 1px solid black; }
+	div.note {
+		   position: relative;
+		   display: block;
+		   padding: 5pt;
+		   margin: 5pt; 
+		   white-space: -moz-pre-wrap; /* Mozilla */
+ 	      	   white-space: -pre-wrap;     /* Opera 4 - 6 */
+ 	      	   white-space: -o-pre-wrap;   /* Opera 7 */
+ 	      	   white-space: pre-wrap;      /* CSS3 */
+ 	      	   word-wrap: break-word;      /* IE 5.5+ */ }
+	</style></head><body><div class="note" id="Note from 2022-10-10 10:28:41.347"><a name="note from 2022-10-10 10:28:41.347"></a><h1>Note from 2022-10-10 10:28:41.347</h1>
+Multimodal Incremental Transformer with Visual Grounding
+for Visual Dialogue Generation 2021.
+
+FLED-Block: Federated Learning Ensembled Deep ... - Frontiers
+Federated Learning and Cooperative Neural Networks (CoNN ..
+
+Environment Adaptive RFID-Based 3D Human Pose Tracking With a Meta-Learning Approach
+
+
+Mecanicien:
+The evolution of RFID technology in the logistics field: a review
+automate inventory management with RFID and computer vision:
+Know what is in your store all the time, in real time
+
+Chocholac J., Sommerauerova D., Svab M., Jiraskova A. and Polak M. (2021) “Logistic technologies for tracking manufactured passenger cars
+on consolidation areas: Interpretative case study” International Scientific Conference on Horizons of Railway Transport. 
+[8] Wanhua W. (2020) “Design and Research of Logistics Distribution System Based on RFID” Journal of Physics: Conference Series 1544(1).
+[9] Caccami M., Amendola S. and Occhiuzzi C. (2019) “Method and system for reading RFID tags embedded into tires on conveyors” IEEE
+International Conference on RFID Technology and Applications. 
+RFID. How to automate inventory management
+Using RFID for Inventory Management: Pros and Cons
+RFID Inventory Management System - Radiant RFID
+Inventory Management with RFID | Track Using RFID Tags
+RFID for inventory management boosts your businesshttps://<a style="color:#3465A4" href="www.navipartner.com">www.navipartner.com</a> › rfid-i...
+Traduire cette page
+Automate inventory counting and status with RFID. Replace manual counting with automated, hand-free inventory management that provides a unique overview. By the ...
+RFID Self-Service Library Management System
+
+
+Yannic Kilcher:  Decision Transformer: Reinforcement Learning via Sequence Modeling (Research Paper Explained)
+
+
+<a style="color:#3465A4" href="https://theaisummer.com/">https://theaisummer.com/</a> (very good)
+<a style="color:#3465A4" href="https://huggingface.co/docs/transformers/model_doc/vit">https://huggingface.co/docs/transformers/model_doc/vit</a>
+
+<a style="color:#3465A4" href="https://github.com/NielsRogge/Transformers-Tutorials/tree/master/VisionTransformer">https://github.com/NielsRogge/Transformers-Tutorials/tree/master/VisionTransformer</a>
+
+<a style="color:#3465A4" href="https://theaisummer.com/hugging-face-vit/:">https://theaisummer.com/hugging-face-vit/:</a>  A complete Hugging Face tutorial: how to build and train a vision transformer
+
+
+<a style="color:#3465A4" href="https://github.com/huggingface/transformers/blob/main/src/transformers/models/vit/feature_extraction_vit.py">https://github.com/huggingface/transformers/blob/main/src/transformers/models/vit/feature_extraction_vit.py</a>
+
+
+1- class ViTFeatureExtractor(FeatureExtractionMixin, ImageFeatureExtractionMixin):
+    r"""
+    Constructs a ViT feature extractor.
+    This feature extractor inherits from [`FeatureExtractionMixin`] which contains most of the main methods. Users
+    should refer to this superclass for more information regarding those methods.
+    Args:
+        do_resize (`bool`, *optional*, defaults to `True`):
+            Whether to resize the input to a certain `size`.
+        size (`int` or `Tuple(int)`, *optional*, defaults to 224):
+            Resize the input to the given size. If a tuple is provided, it should be (width, height). If only an
+            integer is provided, then the input will be resized to (size, size). Only has an effect if `do_resize` is
+            set to `True`.
+        resample (`int`, *optional*, defaults to `PIL.Image.BILINEAR`):
+            An optional resampling filter. This can be one of `PIL.Image.NEAREST`, `PIL.Image.BOX`,
+            `PIL.Image.BILINEAR`, `PIL.Image.HAMMING`, `PIL.Image.BICUBIC` or `PIL.Image.LANCZOS`. Only has an effect
+            if `do_resize` is set to `True`.
+        do_normalize (`bool`, *optional*, defaults to `True`):
+            Whether or not to normalize the input with mean and standard deviation.
+        image_mean (`List[int]`, defaults to `[0.5, 0.5, 0.5]`):
+            The sequence of means for each channel, to be used when normalizing images.
+        image_std (`List[int]`, defaults to `[0.5, 0.5, 0.5]`):
+            The sequence of standard deviations for each channel, to be used when normalizing images.
+    """
+
+
+2-def from_pretrained(cls, pretrained_model_name_or_path: Optional[Union[str, os.PathLike]], *model_args, **kwargs):
+
+*model_args: here, args of ViTFeatureExtractor:  do_resize, size,  resample, do_normalize, image_mean, image_std
+
+
+Example: for VIT model
+
+    def __init__(
+        self,
+        do_resize=True,
+        size=224,
+        resample=Image.BILINEAR,
+        do_normalize=True,
+        image_mean=None,
+        image_std=None,
+        **kwargs
+    ):
+        super().__init__(**kwargs)
+        self.do_resize = do_resize
+        self.size = size
+        self.resample = resample
+        self.do_normalize = do_normalize
+        self.image_mean = image_mean if image_mean is not None else IMAGENET_STANDARD_MEAN
+        self.image_std = image_std if image_std is not None else IMAGENET_STANDARD_STD
+
+3- Utilisation for given inputs:
+
+
+
+    def __call__(
+        self, images: ImageInput,   return_tensors: Optional[Union[str, TensorType]] = None, **kwargs
+    ) -&gt; BatchFeature:
+        """
+
+        Main method to prepare for the model one or several image(s).
+        &lt;Tip warning={true}&gt;
+        NumPy arrays and PyTorch tensors are converted to PIL images when resizing, so the most efficient is to pass
+        PIL images.
+        &lt;/Tip&gt;
+        Args:
+            images (`PIL.Image.Image`, `np.ndarray`, `torch.Tensor`, `List[PIL.Image.Image]`, `List[np.ndarray]`, `List[torch.Tensor]`):
+                The image or batch of images to be prepared. Each image can be a PIL image, NumPy array or PyTorch
+                tensor. In case of a NumPy array/PyTorch tensor, each image should be of shape (C, H, W), where C is a
+                number of channels, H and W are image height and width.
+
+
+            return_tensors (`str` or [`~utils.TensorType`], *optional*, defaults to `'np'`):
+                If set, will return tensors of a particular framework. Acceptable values are:
+                - `'tf'`: Return TensorFlow `tf.constant` objects.
+                - `'pt'`: Return PyTorch `torch.Tensor` objects.
+               -`'np'`: Return NumPy `np.ndarray` objects.
+             -'jax'`: Return JAX `jnp.ndarray` objects.
+
+            tensor_type (`str` or [`~utils.TensorType`], *optional*):  The type of tensors to use. If `str`, should be one of the values of the enum [`~utils.TensorType`]     <a style="color:#3465A4" href="/transformers/utils/generic.py">/transformers/utils/generic.py</a>
+
+             PYTORCH = "pt"
+            TENSORFLOW = "tf"
+            NUMPY = "np"
+          JAX = "jax"
+"""
+
+
+
+
+4-  construct    UserDict containing the data after checking its type, type must be  `PIL.Image.Image`, `np.ndarray`, `torch.Tensor`, `List[PIL.Image.Image]`, `List[np.ndarray]`, `List[torch.Tensor],   normalizing the data , resizing it
+
+        # Input type checking for clearer error
+        valid_images = False
+
+        # Check that images has a valid type
+        if isinstance(images, (Image.Image, np.ndarray)) or is_torch_tensor(images):
+            valid_images = True
+        elif isinstance(images, (list, tuple)):
+            if len(images) == 0 or isinstance(images[0], (Image.Image, np.ndarray)) or is_torch_tensor(images[0]):
+                valid_images = True
+
+        if not valid_images:
+            raise ValueError(
+                "Images must of type `PIL.Image.Image`, `np.ndarray` or `torch.Tensor` (single example), "
+                "`List[PIL.Image.Image]`, `List[np.ndarray]` or `List[torch.Tensor]` (batch of examples)."
+            )
+
+        is_batched = bool(
+            isinstance(images, (list, tuple))
+            and (isinstance(images[0], (Image.Image, np.ndarray)) or is_torch_tensor(images[0]))
+        )
+
+        if not is_batched:                         # make the images in a list 
+            images = [images]
+
+        # transformations (resizing + normalization)
+        if self.do_resize and self.size is not None:
+            images = [self.resize(image=image, size=self.size, resample=self.resample) for image in images]
+        if self.do_normalize:
+            images = [self.normalize(image=image, mean=self.image_mean, std=self.image_std) for image in images]
+
+     ----&gt; data = {"pixel_values": images}
+
+
+5-    Do batching:  <a style="color:#3465A4" href="/transformers/feature_extraction_utils.py">/transformers/feature_extraction_utils.py</a>
+
+"""
+class BatchFeature(UserDict):
+    
+r"""
+    Holds the output of the [`~SequenceFeatureExtractor.pad`] and feature extractor specific `__call__` methods.
+    This class is derived from a python dictionary and can be used as a dictionary.
+    Args:
+        data (`dict`):
+            Dictionary of lists/arrays/tensors returned by the __call__/pad methods ('input_values', 'attention_mask',
+            etc.).
+        tensor_type (`Union[None, str, TensorType]`, *optional*):
+            You can give a tensor_type here to convert the lists of integers in PyTorch/TensorFlow/Numpy Tensors at
+            initialization.
+    """       .
+         .
+     .
+
+
+        Returns:
+            [`BatchFeature`]: A [`BatchFeature`] with the following fields:
+            - **pixel_values** -- Pixel values to be fed to a model, of shape (batch_size, num_channels, height,
+              width).
+
+"""
+   
+Example in ViT feature extractor:
+
+     # return as BatchFeature
+        data = {"pixel_values": images}
+        encoded_inputs = BatchFeature(data=data, tensor_type=return_tensors)
+
+        return encoded_inputs
+"""
+
+
+  5-1:    def convert_to_tensors(self, tensor_type: Optional[Union[str, TensorType]] = None):       #feature_extraction_utils.py
+              """
+               Convert the inner content to tensors.
+                 Args:
+                       tensor_type (`str` or [`~utils.TensorType`], *optional*):
+                     The type of tensors to use. If `str`, should be one of the values of the enum [`~utils.TensorType`]. If None`, no modification is done.
+        """
+
+          as_tensor = np.asarray/
+            is_tensor = _is_numpy/
+
+            as_tensor = tf.constant
+            is_tensor = tf.is_tensor
+
+            as_tensor = jnp.array
+            is_tensor = _is_jax
+
+
+            as_tensor = np.asarray
+            is_tensor = _is_numpy
+.
+.
+.
+.# Do the tensor conversion in batch
+for key, value in self.items():
+
+            try:
+
+                if not is_tensor(value):
+
+                    tensor = as_tensor(value)
+
+                    self[key] = tensor
+
+            except:  # noqa E722
+
+                if key == "overflowing_values":
+
+                    raise ValueError("Unable to create tensor returning overflowing values of different lengths. ")
+
+                raise ValueError(
+                    "Unable to create tensor, you should probably activate padding "
+                    "with 'padding=True' to have batched tensors with the same length."
+                )
+
+        return self
+
+5-2: Utilities to makes input (data) into dict      k:v, into self, etc
+
+def __init__(self, data: Optional[Dict[str, Any]] = None, tensor_type: Union[None, str, TensorType] = None):
+        super().__init__(data)
+        self.convert_to_tensors(tensor_type=tensor_type)
+
+    def __getitem__(self, item: str) -&gt; Union[Any]:
+        """
+        If the key is a string, returns the value of the dict associated to `key` ('input_values', 'attention_mask',
+        etc.).
+        """
+        if isinstance(item, str):
+            return self.data[item]
+        else:
+            raise KeyError("Indexing with integers is not available when using Python based feature extractors")
+
+    def __getattr__(self, item: str):
+        try:
+            return self.data[item]
+        except KeyError:
+            raise AttributeError
+
+    def __getstate__(self):
+        return {"data": self.data}
+
+    def __setstate__(self, state):
+        if "data" in state:
+            self.data = state["data"]
+
+    # Copied from transformers.tokenization_utils_base.BatchEncoding.keys
+    def keys(self):
+        return self.data.keys()
+
+    # Copied from transformers.tokenization_utils_base.BatchEncoding.values
+    def values(self):
+        return self.data.values()
+
+    # Copied from transformers.tokenization_utils_base.BatchEncoding.items
+    def items(self):
+        return self.data.items()
+    
+
+5-3- move to device the values of data:
+    @torch_required
+    # Copied from transformers.tokenization_utils_base.BatchEncoding.to with BatchEncoding-&gt;BatchFeature
+    def to(self, device: Union[str, "torch.device"]) -&gt; "BatchFeature":
+        """
+        Send all values to device by calling `v.to(device)` (PyTorch only).
+        Args:
+            device (`str` or `torch.device`): The device to put the tensors on.
+        Returns:
+            [`BatchFeature`]: The same instance after modification.
+        """
+
+        # This check catches things like APEX blindly calling "to" on all inputs to a module
+        # Otherwise it passes the casts down and casts the LongTensor containing the token idxs
+        # into a HalfTensor
+        if isinstance(device, str) or _is_torch_device(device) or isinstance(device, int):
+            self.data = {k: v.to(device=device) for k, v in self.data.items()}
+        else:
+            logger.warning(f"Attempting to cast a BatchFeature to type {str(device)}. This is not supported.")
+        return self
+
+5-6:     For more utilities in feature extraction: 
+       The feature extractor inherits from [`FeatureExtractionMixin`] which contains most of the main methods. Users   should refer to this superclass for more information regarding those methods.#transformers/feature_extraction_utils.py
+                    
+
+                                class FeatureExtractionMixin(PushToHubMixin):
+                                           """
+                                    This is a feature extraction mixin used to provide saving/loading functionality for sequential and image feature extractors.
+                                            from .hub import  PushToHubMixin
+                                           [`~utils.PushToHubMixin.push_to_hub`]
+
+                                         """
+                                                     1          @classmethod
+                                                               def from_pretrained(  cls, pretrained_model_name_or_path: Union[str, os.PathLike], **kwargs ) -&gt; PreTrainedFeatureExtractor:
+                                                                     r"""
+                                                                            Instantiate a type of [`~feature_extraction_utils.FeatureExtractionMixin`] from a feature extractor, *e.g.* a
+                                                                              derived class of [`SequenceFeatureExtractor`].
+                                                                                 """
+                                                      2          def save_pretrained(self, save_directory: Union[str, os.PathLike], push_to_hub: bool = False, **kwargs):
+                                                                              """
+                                                                               Save a feature_extractor object to the directory `save_directory`, so that it can be re-loaded using the
+                                                                                 [`~feature_extraction_utils.FeatureExtractionMixin.from_pretrained`] class method.
+                                                                                      """
+                                                     3         @classmethod
+                                                                    def get_feature_extractor_dict( cls, pretrained_model_name_or_path: Union[str, os.PathLike], **kwargs  ) -&gt; Tuple[Dict[str, Any], Dict[str, Any]]:
+                                                                                   """
+                                                                                       From a `pretrained_model_name_or_path`, resolve to a dictionary of parameters, to be used for instantiating a
+                                                                                            feature extractor of type [`~feature_extraction_utils.FeatureExtractionMixin`] using `from_dict`."""
+                                                  4             @classmethod
+                                                                    def from_dict(cls, feature_extractor_dict: Dict[str, Any], **kwargs) -&gt; PreTrainedFeatureExtractor:
+                                                                                """
+                                                                                       Instantiates a type of [`~feature_extraction_utils.FeatureExtractionMixin`] from a Python dictionary of  parameters.
+                                                                                       """
+                                                  5           @classmethod
+                                                                    def from_json_file(cls, json_file: Union[str, os.PathLike]) -&gt; PreTrainedFeatureExtractor:
+                                                                                    """
+                                                                                             Instantiates a feature extractor of type [`~feature_extraction_utils.FeatureExtractionMixin`] from the path to  a JSON file of parameters.  """
+                                                  6           def to_json_string(self) -&gt; str:
+                                                                                  """
+                                                                          Serializes this instance to a JSON string.
+                                                                                      Returns:
+                                                                                        `str`: String containing all the attributes that make up this feature_extractor instance in JSON format.
+                                                                                         """
+
+
+
+                                               7           def to_json_file(self, json_file_path: Union[str, os.PathLike]):
+                                                                         """
+                                                                               Save this instance to a JSON file.    
+
+                                             8           @classmethod
+                                                                  def register_for_auto_class(cls, auto_class="AutoFeatureExtractor"):
+                                                                          """
+                                                                           Register this class with a given auto class. This should only be used for custom feature extractors as the ones  in the library are already mapped with `AutoFeatureExtractor`.  """
+
+                                        FeatureExtractionMixin.push_to_hub = copy_func(FeatureExtractionMixin.push_to_hub)
+                                        FeatureExtractionMixin.push_to_hub.__doc__ = FeatureExtractionMixin.push_to_hub.__doc__.format(  object="feature extractor", object_class="AutoFeatureExtractor", object_files="feature extractor file")
+
+
+#In summary:
+The output of   feature_extractor :
+
+     # return as BatchFeature
+        data = {"pixel_values": images}
+
+.# Do the tensor conversion in batch:  encoded_inputs = BatchFeature(data=data, tensor_type=return_tensors)
+  for key, value in data.items():
+
+            try:
+
+                if not is_tensor(value):
+
+                    tensor = as_tensor(value)
+
+                    self[key] = tensor
+
+            except:  # noqa E722
+
+                if key == "overflowing_values":
+
+                    raise ValueError("Unable to create tensor returning overflowing values of different lengths. ")
+
+                raise ValueError(
+                    "Unable to create tensor, you should probably activate padding "
+                    "with 'padding=True' to have batched tensors with the same length."
+                )
+
+        return encoded_inputs= data
+
+
+
+
+
+         feature_extractor = ViTFeatureExtractor.from_pretrained("facebook/dino-vits8", do_resize=False)
+
+       pixel_values = feature_extractor(images=image, return_tensors="pt").pixel_values
+
+
+"""
+
+#The output of the model
+       
+class ViTModel(ViTPreTrainedModel):
+
+   def forward(
+        self,
+        pixel_values: Optional[torch.Tensor] = None,
+        bool_masked_pos: Optional[torch.BoolTensor] = None,
+        head_mask: Optional[torch.Tensor] = None,
+        output_attentions: Optional[bool] = None,
+        output_hidden_states: Optional[bool] = None,
+        interpolate_pos_encoding: Optional[bool] = None,
+        return_dict: Optional[bool] = None,
+    ):  
+
+ 
+return BaseModelOutputWithPooling(
+            last_hidden_state=sequence_output,
+            pooler_output=pooled_output,
+            hidden_states=encoder_outputs.hidden_states,
+            attentions=encoder_outputs.attentions,
+        )
+
+from .utils import ModelOutput
+
+@dataclass
+class BaseModelOutputWithPooling(ModelOutput):    #/transformers/modeling_outputs.py
+
+    """
+    Base class for model's outputs that also contains a pooling of the last hidden states.
+    Args:
+        last_hidden_state (`torch.FloatTensor` of shape `(batch_size, sequence_length, hidden_size)`):
+            Sequence of hidden-states at the output of the last layer of the model.
+        pooler_output (`torch.FloatTensor` of shape `(batch_size, hidden_size)`):
+            Last layer hidden-state of the first token of the sequence (classification token) after further processing
+            through the layers used for the auxiliary pretraining task. E.g. for BERT-family of models, this returns
+            the classification token after processing through a linear layer and a tanh activation function. The linear
+            layer weights are trained from the next sentence prediction (classification) objective during pretraining.
+        hidden_states (`tuple(torch.FloatTensor)`, *optional*, returned when `output_hidden_states=True` is passed or when `config.output_hidden_states=True`):
+            Tuple of `torch.FloatTensor` (one for the output of the embeddings, if the model has an embedding layer, +
+            one for the output of each layer) of shape `(batch_size, sequence_length, hidden_size)`.
+            Hidden-states of the model at the output of each layer plus the optional initial embedding outputs.
+        attentions (`tuple(torch.FloatTensor)`, *optional*, returned when `output_attentions=True` is passed or when `config.output_attentions=True`):
+            Tuple of `torch.FloatTensor` (one for each layer) of shape `(batch_size, num_heads, sequence_length,
+            sequence_length)`.
+            Attentions weights after the attention softmax, used to compute the weighted average in the self-attention
+            heads.
+    """
+
+    last_hidden_state: torch.FloatTensor = None
+    pooler_output: torch.FloatTensor = None
+    hidden_states: Optional[Tuple[torch.FloatTensor]] = None
+    attentions: Optional[Tuple[torch.FloatTensor]] = None
+
+"""
+        encoder_outputs = self.encoder(
+            embedding_output,
+            head_mask=head_mask,
+            output_attentions=output_attentions,
+            output_hidden_states=output_hidden_states,
+            return_dict=return_dict,
+        )
+
+    self.encoder = ViTEncoder(config)
+
+  class ViTEncoder(nn.Module):
+
+def forward(
+        self,
+        hidden_states: torch.Tensor,
+        head_mask: Optional[torch.Tensor] = None,
+        output_attentions: bool = False,
+        output_hidden_states: bool = False,
+        return_dict: bool = True,
+    ) -&gt; Union[tuple, BaseModelOutput]:
+
+
+     
+      if not return_dict:
+            return tuple(v for v in [hidden_states, all_hidden_states, all_self_attentions] if v is not None)
+        return BaseModelOutput(
+            last_hidden_state=hidden_states,
+            hidden_states=all_hidden_states,
+            attentions=all_self_attentions,
+        )
+
+
+"""
+
+
+
+# forward pass
+    outputs = model(pixel_values, output_attentions=True, interpolate_pos_encoding=True)
+
+# get attentions of last layer
+   attentions = outputs.attentions[-1] 
+   nh = attentions.shape[1] # number of heads
+
+
+
+</div></body></html>
