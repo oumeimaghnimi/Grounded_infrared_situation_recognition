@@ -1,0 +1,18 @@
+Xml to json:
+
+https://www.oxygenxml.com/doc/versions/24.1/ug-editor/topics/convert-XML-to-JSON-x-tools.html
+
+
+
+when creating and updationg anaconda: $conda update -n base -c defaults conda
+        you see in built packages
+                  xmltodict-0.12.0
+
+
+
+parser_xml;
+
+pip install pandas-read-xml
+import pandas_read_xml as pdx
+df = pdx.read_xml("00000001.xml")
+print(df.to_json())
