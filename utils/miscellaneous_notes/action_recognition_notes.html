@@ -1,0 +1,339 @@
+https://github.com/huggingface/transformers/blob/main/src/transformers/models/auto/modeling_auto.py
+
+
+
+
+Startup build a custom dataset for your project :https://www.twine.net/ai
+
+
+See descriptions of datasets in Kaggle. It is better to understand it.
+
+
+Knowledge Distillation for Action Recognition Based on RGB and Infrared Videos 2022.
+             https://app.dimensions.ai/details/publication/pub.1147164297
+
+https://www.twine.net/blog/top-human-action-video-datasets/:
+https://gist.github.com/jin-zhe/3a6054e99162bc9277940867f942bba2: AVA, ActivityNet, , Charades, HMDB51
+                                  UCF101   https://www.crcv.ucf.edu/research/data-sets/ucf101/
+   1. Largest Human Action Video Dataset:
+        -Kinetics-700:  https://www.deepmind.com/open-source/kinetics for dowloading it.
+                       Each clip is annotated with an action class and lasts approximately 10 seconds.
+        -Kinetics-600:  https://paperswithcode.com/dataset/kinetics
+
+       - NTU RGB+D : https://paperswithcode.com/dataset/ntu-rgb-d
+
+   2. -Best Multimodal Activity Recognition Video Dataset: http://moments.csail.mit.edu/
+         A large-scale dataset for recognizing and understanding action in videos 2021.
+        The Moments in Time Dataset is a research project dedicated to building a very large-scale dataset to help AI systems recognize and understand actions and events in videos.
+        Each video captures the gist of a dynamic scene, allowing models to be built upon the most organic physical movement.
+
+          One million, 3-second, labeled videos
+          Involves people, animals, objects, and natural phenomena
+
+         -UTD Multimodal Human Action Dataset (UTD-MHAD): https://personal.utdallas.edu/~kehtar/UTD-MHAD.html
+                  RGB, depth, skeleton, and inertial sensor signals
+                 ( fusion of depth and inertial sensor data.)
+
+         -Home Action Genome:https://homeactiongenome.org/: 
+               "train data":https://homeactiongenome.org/download.html
+               Home Action Genome (HOMAGE) joins ActivityNet 2022 Competition as a guest tasks
+               https://homeactiongenome.org/competition.html: "test data f
+               Challenge: Scene-graph Generation
+
+              We use scene graphs to describe the relationship between a person and the object used during the execution of an action. In this track, the algorithms need to predict per-frame scene graphs, including how they change as the video progresses. For this track, participants are also allowed to leverage audio information. External datasets for pre-training are allowed, but it needs to be clearly documented. Since there are multiple relationships between each pair of human and object,
+              there is no graph constraint (or single-relationship constraint).
+              For evaluation of scene graph prediction, we use the evaluation metric as Scene graph classification (SGCLS).
+              The task is to predict object categories and predicate labels between the person and each object.
+              Participants can use input information as video, other modalities and ground truth boxes.
+              Evaluation metrics is recall@k, we compute the fraction of times the ground truth relationship triplets are predicted in the top k most confident relationships predictions in each tested frame. We will use k=10, 20.
+    
+   3. Best Pose Estimation Video Dataset: http://human-pose.mpi-inf.mpg.de/
+             -MPII Human Pose dataset is a state-of-the-art benchmark for the evaluation of articulated human pose estimation. The images were systematically collected using an established taxonomy of everyday human activities.
+             Each image was extracted from a YouTube video and provided with preceding and following un-annotated frames.
+             
+             25K images
+             40K people with annotated body joints
+             410 human activities
+
+             - Leeds Sports Pose (LSP) Dataset:https://dbcollection.readthedocs.io/en/latest/datasets/leeds_sports_pose_extended.html (detailed desription: good)
+             - YCB-Video Dataset: https://rse-lab.cs.washington.edu/projects/posecnn/
+
+   4. Best Scene Understanding Video Dataset: 
+
+             - The ADE20K Dataset is a large-scale, semantic segmentation dataset. Every scene-centric image is exhaustively annotated, with pixel-level objects and object parts labels. With a variety of categories and a large number of images,
+                this is a perfect dataset to build a model for scene understanding: https://groups.csail.mit.edu/vision/datasets/ADE20K/
+                *20K scene-centric images
+                *150 semantic categories – includes sky, road, grass, and discrete objects like person, car, bed, etc.
+             -SceneNet: https://robotvault.bitbucket.io/: Repository of Labelled Synthetic Indoor Scenes.
+             -KITTI Road Dataset: https://www.cvlibs.net/datasets/kitti/eval_road.php: road and lane estimation benchmark 
+
+   5. Best Emotion Recognition Video Dataset:
+            - The Expression in-the-Wild (ExpW) dataset: aims to investigate if such fine-grained and high-level relation traits can be characterized and quantified from face images in the wild.
+                                                          It is a deep model that learns a rich face representation to capture gender, expression, head pose, and age-related attributes, 
+                                                           and then performs pairwise-face reasoning for relation prediction. 
+                                                           http://mmlab.ie.cuhk.edu.hk/projects/socialrelation/index.html
+            
+
+            - EmoBank: https://github.com/JULIELab/EmoBank
+            - Aff-Wild : https://ibug.doc.ic.ac.uk/resources/first-affect-wild-challenge/
+                         Dataset for emotion recognition from facial images in a variety of head poses, illumination conditions, and occlusions.
+
+https://huggingface.co/spaces/DrishtiSharma/Human-Action-Recognizer/blob/main/app.py
+https://huggingface.co/DrishtiSharma/finetuned-ViT-human-action-recognition-v1: see tensorboad, training metrics, etc.
+
+
+
+Human_Action_Recognition dataset:
+         HAR: https://www.kaggle.com/datasets/meetnagadia/human-action-recognition-har-dataset
+         UTD Multimodal Human Action Dataset :
+             Human Action Recognition Dataset: https://www.kaggle.com/datasets/dasmehdixtr/human-action-recognition-dataset
+
+
+
+
+
+
+- facial expression recognition  # see Thales also.
+- Hand Gesture Languages.
+- Action recognition.
+
+
+see artificial Intelligence datsets website used in my master s'degree.
+
+
+        
+
+Action recognition without skeleton modality:
+
+
+
+https://github.com/open-mmlab/mmaction2:
+
+https://github.com/open-mmlab/mmaction2/blob/master/tools/data/kinetics/README.md
+
+              The Kinetics dataset is a large-scale, high-quality dataset for human action recognition in videos. 
+                              (kinetics400, kinetics600 and kinetics700)
+              see papers and codes, tasks, etc, self supervised, multimodal     https://paperswithcode.com/dataset/kinetics
+                  https://paperswithcode.com/sota
+
+Skeleton modality:
+
+
+
+
+               Search codes on NTU RGB+D in  https://paperswithcode.com/:
+               https://paperswithcode.com/datasets   #all datasets
+               https://paperswithcode.com/datasets?mod=videos&page=1  #  selection for videos
+
+               -----------------------------https://github.com/open-mmlab --------------------------  #other tasks
+https://github.com/open-mmlab/mmskeleton/tree/b4c076baa9e02e69b5876c49fa7c509866d902c7
+https://github.com/open-mmlab/mmskeleton/blob/master/doc/GETTING_STARTED.md
+        
+        MMSkeleton is an open source toolbox for skeleton-based human understanding. It is a part of the open-mmlab project in the charge of Multimedia Laboratory, CUHK. 
+        MMSkeleton is developed on the research project ST-GCN
+
+        
+                
+           *Multiple tasks:
+        
+                skeleton-based action recognition (ST-GCN).
+                2D pose estimation.
+                build custom skeleton-based dataset.
+                create your own applications.               
+
+https://github.com/YangDi666/UNIK:Unified Framework for Real-world Skeleton Action Recognition
+
+
+       Posetics: please contact us (di.yang@inria.fr) for Data Request.
+       Toyota Smarthome: download the raw data (skeleton-v2.0 refined by SSTA-PRS).
+       Penn Action: download the raw skeleton data.
+       For other datasets: NTU-RGB+D/Skeleton-Kinetics.
+
+       Preprocess data: https://github.com/YangDi666/UNIK/tree/main/data_gen
+
+     papers:
+
+       SSTA-PRS: Selective Spatio-Temporal Aggregation Based Pose Refinement System | Project page
+       UNIK: A Unified Framework for Real-world Skeleton-based Action Recognition | Project page
+       ViA: View-invariant Skeleton Action Representation Learning via Motion Retargeting | Project page
+
+
+       
+Paper: Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition in CVPR19                      
+      https://github.com/lshiwjx/2s-AGCN
+      https://github.com/lshiwjx/2s-AGCN/tree/master/data_gen
+
+
+
+https://mmaction2.readthedocs.io/en/latest/skeleton_models.html:
+           Two-Stream Adaptive Graph Convolutional Networks for Skeleton-Based Action Recognition:
+                     
+
+                    
+https://github.com/negarhdr/skeleton-based-action-recognition/blob/master/:   #data_gen/ for processing data
+           ST-GCN, its extension 2s-AGCN, TA-GCN , PST-GCN, ST-BLN , and PST-BLN  for skeleton-based human action recognition.
+                                    - NTU-RGB+D: https://github.com/shahroudy/NTURGB-D
+                                    - Facial expression recognition methods for landmark-based facial expression recognition task
+                                           "Progressive Spatio-Temporal Bilinear Network with Monte Carlo Dropout for Landmark-based Facial Expression Recognition with Uncertainty Estimation 2021.
+                                            https://github.com/negarhdr/FER_PSTBLN_MCD
+
+                                    -https://github.com/yysijie/st-gcn   #Skeleton-Kinetics.  
+                                           Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition 218.
+                                         ST-GCN has transferred to MMSkeleton, and keep on developing as an flexible open source toolbox for skeleton-based human understanding. 
+                                         You are welcome to migrate to new MMSkeleton.
+                                         Custom networks, data loaders and checkpoints of old st-gcn are compatible with MMSkeleton.
+                                         If you want to use old ST-GCN, please refer to OLD_README.md: https://github.com/yysijie/st-gcn/blob/master/OLD_README.md
+                                          
+
+           # The implementations are also integrated in OpenDR toolkit which will be publicly available soon.
+   
+
+              
+
+           - NTU-RGB+D: https://github.com/shahroudy/NTURGB-D   
+               1- Data preparation:
+
+
+                  full dataset dowloading: "NTU RGB+D" Dataset and "NTU RGB+D 120" Dataset
+                                     (also include AUTH UAV Gesture Dataset: NTU 4-Class):
+                                          https://rose1.ntu.edu.sg/dataset/actionRecognition/
+                                          https://rose1.ntu.edu.sg/challenge/ActionRecognitionChallenge/
+                                          https://www.kaggle.com/datasets/hungkhoi/skeleton-data-of-ntu-rgbd-60-dataset
+       
+                  Organization account for sending request to dowload dataset/     Anjani
+             
+                  If you need the skeleton data only, you could also obtain it via:
+       
+                                      https://drive.google.com/open?id=1CUZnBtYwifVXS21yVg62T-vrPVayso5H
+       
+                                      https://drive.google.com/open?id=1tEbuaEqMxAV7dNc4fqu1O4M7mC6CJ50w
+       
+                   See also Related Publications in https://rose1.ntu.edu.sg/dataset/actionRecognition/:
+                                      - Collaborative Learning of Gesture Recognition and 3D Hand Pose Estimation with Multi-Order Feature Analysis", ECCV 2020.
+                                      - "Skeleton Cloud Colorization for Unsupervised 3D Action Representation Learning", ICCV 2021.
+       
+                    Derived Works Based on NTU RGB+D Dataset:
+                                      - LSMB19: A Large-Scale Motion Benchmark for Searching and Annotating in Continuous Motion Data Streams
+                                               The LSMB19 dataset is built by interconnecting 3D skeletal data of non-interactive actions of the NTU’s RGB+D Action Recognition dataset 
+                                               into two very long continuous sequences,
+                                               each one for the cross-subject and cross-view modality.
+                                               http://mocap.fi.muni.cz/lsmb-dataset?lang=en
+
+                                      - AUTH UAV Gesture Dataset :F. Patrona, I. Mademlis, I. Pitas, “An Overview of Hand Gesture Languages for Autonomous UAV Handling”, 2021.       
+                                              https://aiia.csd.auth.gr/auth-uav-gesture-dataset/  
+                                 
+       
+               2- Definition of NTURGB-D:
+                  
+                  "NTU RGB+D" is a large-scale dataset for human action recognition 2016"
+                  It is introduced in  CVPR 2016 paper: NTU RGB+D: A Large Scale Dataset for 3D Human Activity Analysis  2016.
+                              (+ School of Electrical and Electronic Engineering, Nanyang Technological University, Singapore
+                               + Institute for Infocomm Research, Singapore)
+       
+                  "NTU RGB+D 120: A Large-Scale Benchmark for 3D Human Activity Understanding 2020.""
+       
+                  "NTU RGB+D" and NTU RGB+D 120" datasets contain 56,880 and 114,480 action samples, respectively. 
+                  Both datasets include 4 different modalities of data for each sample:
+              
+                         - RGB videos.
+                         - depth map sequences.
+                         - 3D skeletal data.
+                         - infrared (IR) videos.
+       
+                         see samples : D+S, S+IR   
+       
+                  "NTU RGB+D" dataset contains 60 action classes, and "NTU RGB+D 120" dataset contains 120 action classes.
+                   that actions labelled from A1 to A60 are in "NTU RGB+D", while actions labelled from A1 to A120 are in "NTU RGB+D 120".
+       
+                   Each dataset is captured by three Kinect V2 cameras concurrently.
+        
+                   The resolutions of RGB videos are 1920×1080, depth maps and IR videos are all in 512×424, 
+       
+                   and 3D skeletal data  contains the 3D coordinates of 25 major body joints at each frame.
+       
+                   302 samples in "NTU RGB+D" dataset and 535 samples in "NTU RGB+D 120" dataset have missing or incomplete skeleton data.
+                   If you are working on skeleton-based analysis, please ignore these files in your training and testing procedures.
+                   The list of these samples in "NTU RGB+D" dataset are provided in:
+                     https://github.com/shahroudy/NTURGB-D/blob/master/Matlab/NTU_RGBD_samples_with_missing_skeletons.txt.
+                   The list of these samples in "NTU RGB+D 120" dataset are provided in:
+                     https://github.com/shahroudy/NTURGB-D/blob/master/Matlab/NTU_RGBD120_samples_with_missing_skeletons.txt
+            
+                    The actions in these two datasets are in three major categories:
+                         #https://rose1.ntu.edu.sg/dataset/actionRecognition/
+                                daily actions,
+                                mutual actions, 
+                                and medical conditions, 
+       
+                               more information about the data, answers to FAQs, samples codes to read the data, and the latest published results on our datasets:
+                                      https://github.com/shahroudy/NTURGB-D
+       
+               3- Read the skeleton files, map them to other modalities (RGB, depth, and IR frames), and visualize the skeleton data:
+                                         (suitable for both "NTU RGB+D" and "NTU RGB+D 120").
+                  https://github.com/shahroudy/NTURGB-D/tree/master/Matlab
+                 
+                               
+       
+                            read_skeleton_file.m
+                            show_skeleton_on_IR_frames.m
+                            show_skeleton_on_IR_frames.m
+                            show_skeleton_on_depthmaps.m
+       
+       
+            
+MMYOLO:https://github.com/open-mmlab/mmyolo
+       is an open source toolbox for YOLO series algorithms based on PyTorch and MMDetection. It is a part of the OpenMMLab project.
+               
+
+
+
+       
+
+PKU MMD  dataset:PKU-MMD: A Large Scale Benchmark for Continuous Multi-Modal Human Action Understanding 2017.(indoor environment may be)
+                           https://www.icst.pku.edu.cn/struct/Projects/PKUMMD.html
+                           http://39.96.165.147/Projects/PKUMMD/PKU-MMD.html
+                           Evaluation Protocol: https://github.com/ECHO960/PKU-MMD/blob/master/evaluate.py
+
+                           https://www.researchgate.net/figure/A-detailed-list-about-51-action-categories-used-in-PKU-MMD-dataset_tbl2_320545321
+                            
+                           
+                           Provide 5 categories of resources: 
+                              -RGB images
+                              -RGB videos:     A folder is provided for each video which contains several images corresponding to each frame. 
+                                              Each image is in $three-dimensional$ $1920\times 1080$ jpeg format.
+                              -depth maps:  A folder is provided for each video which contains several images corresponding to each frame. 
+                                           Each image is in $two-dimensional$ $512\times 424$ png format.
+                                  
+                              -skeleton joints: several lines for frame-level skeleton data: 3-dimensional locations of 25 major body joints of 2 subjects.
+                                                for detected and tracked human bodies in the scene. We further provide the confidence of each joints point as appendix.
+                              -infrared sequences: A folder is provided for each video which contains several images corresponding to each frame. 
+                                                   Each image is in $one-dimensional$ $512\times 424$ png format.
+
+                              data_pipeline:
+                                  https://github.com/google/graph_distillation/blob/master/data_pipeline/pku_mmd.py
+                          
+                          *(PKU-MMD) for continuous multi-modality 3D human action understanding (especially action detection).
+                          *Cover a wide range of complex human activities with well annotated information.
+                          *PKU-MMD contains 1076 long video sequences in 51 action categories, performed by 66 subjects in three camera views. (actions for single and pairs.)
+                          *It contains almost 20,000 action instances and 5.4 million frames in total.
+                          *New proposed evaluation protocol 2D-AP. 
+ 
+                          https://paperswithcode.com/
+
+                             CMD: Self-supervised 3D Action Representation Learning with Cross-modal Mutual Distillation 2022.
+                             MMNet: A Model-Based Multimodal Network for Human Action Recognition in RGB-D Videos 2022.
+                             Contrastive Learning from Spatio-Temporal Mixed Skeleton Sequences for Self-Supervised Skeleton-Based Action Recognition 2022.
+                             Contrastive Learning from Extremely Augmented Skeleton Sequences for Self-supervised Action Recognition 2021.
+                             Towards Tokenized Human Dynamics Representation 2021.
+                             Multimodal Fusion via Teacher-Student Network for Indoor Action Recognition 2021.
+
+
+                             Graph Distillation for Action Detection with Privileged Modalities 2018.
+
+
+
+
+
+ InfAR dataset: Infrared action recognition at different times  2016.
+
+
+ Egocentric Vision-based Action Recognition: A survey         2022 /see multiple dataset for    Egocentric...      
