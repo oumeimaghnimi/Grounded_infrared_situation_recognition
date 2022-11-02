@@ -1,4 +1,12 @@
-
+# -----------------------------------------------------------------------------------------------------
+# 
+#  
+#                          Modified from SWiG (https://github.com/allenai/swig)
+#                          Allen Institute for Artificial Intelligence.
+# 
+#  
+# 
+# -----------------------------------------------------------------------------------------------------
 
 from __future__ import print_function, division
 import sys
