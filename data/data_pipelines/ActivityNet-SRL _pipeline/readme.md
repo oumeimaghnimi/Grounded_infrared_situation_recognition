@@ -3,7 +3,7 @@
 
 
 
-## Preparing Data
+# Preparing Data
 
  download the data through   download_data.sh:
 
