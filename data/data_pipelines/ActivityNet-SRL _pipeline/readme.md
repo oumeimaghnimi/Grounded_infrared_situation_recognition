@@ -1,7 +1,23 @@
- ActivityNet SRL (ASRL) is from ActivityNet Captions (AC) and ActivityNet Entities (AE) datasets.
 
 
+ # -----------------------------------------------------------------------------------------------------
+ 
+ ActivityNet SRL (ASRL) was created  from ActivityNet Captions (AC) and ActivityNet Entities (AE) datasets by following the underling steps:
+ # https://github.com/TheShadow29/vognet-pytorch/:
+ #used in the context of Video Object Grounding (VOG): localization of  objects in a video referred in a query sentence description.
+ #semantic role of object relations are elevated via spatial and temporal concatenation of contrastive examples sampled from  ActivityNet-SRL (ASRL).
+ 
+    1. Add semantic roles to captions in AC using SRL Labeling system from AllenAI: 
+                   https://github.com/TheShadow29/vognet-pytorch/tree/master/dcode/sem_role_labeller.py
+    1. Prepocess AE. In particular, resize all the proposals, ground-truth bounding boxes (this is required for SPAT/TEMP).
+    1. Preprocess the features and choose only 5 groundtruths for GT5 setting.
+    1. Obtain the bounding boxes and category names from AE for the relevant phrases.
+    1. Filter out some verbs like "is", "are", "complete", "begin"
+    1. Filter some SRL Arguments based on Frequency.
+    1. Get Training/Validation/Test videos.
+    1. Do Contrastive Sampling and store the dictionary files for easier sampling during training.
 
+# ----------------------------------------------------------------------------------------------------- 
 
 # Preparing Data
 
