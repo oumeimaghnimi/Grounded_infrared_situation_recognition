@@ -1,0 +1,351 @@
+
+
+                                     #How to Use %-formatting
+Example1:
+>>> name = "Eric"
+>>> "Hello, %s." % name
+              'Hello, Eric.'
+Example2:
+>>> name = "Eric"
+>>> age = 74
+>>> "Hello, %s. You are %s." % (name, age)
+'Hello Eric. You are 74.'
+
+                                 #str.format() is definitely an upgrade when compared with %-formatting, but it’s not all roses and sunshine.
+                                #How To Use str.format()
+
+Example1:
+>>> "Hello, {}. You are {}.".format(name, age)
+              'Hello, Eric. You are 74.'
+
+Example2:
+>>> "Hello, {1}. You are {0}.".format(age, name)
+'Hello, Eric. You are 74.'
+
+Example3:
+>>> person = {'name': 'Eric', 'age': 74}
+>>> "Hello, {name}. You are {age}.".format(name=person['name'], age=person['age'])
+       'Hello, Eric. You are 74.'
+Example3:
+>>> person = {'name': 'Eric', 'age': 74}
+>>> "Hello, {name}. You are {age}.".format(**person)
+                'Hello, Eric. You are 74.'
+
+
+                      #f-Strings: A New and Improved Way to Format Strings in Python
+
+>>> name = "Eric"
+>>> age = 74
+>>> f"Hello, {name}. You are {age}."
+'Hello, Eric. You are 74.'
+
+
+>>> f"{2 * 37}"
+'74'
+
+                       # rename multiples files using Python
+
+import os
+def main():
+      folder ="C:/Users/MediaHelp/detr_application_wider_face/airplane_002"
+      for count, filename in enumerate(os.listdir(folder)):
+            dst = f"part_5_train_1_airplane_002_ {count}.jpg"
+         
+            src = f"{folder}/{filename}"
+
+            ds= f"{folder}/{dst}"
+            os.rename(src, dst)
+      #driver code
+if__name__== '__main__':
+#calling main() function
+   main()
+
+
+
+  # make a global path not temporary one for all files
+
+import os
+from glob import glob
+
+target_dir = './some/dir/with/data'
+
+for i, p in enumerate(glob(f'{target_dir}/*.jpg')):
+      os.rename(p, f'{target_dir}/{i}.jpg')
+
+Example1:
+
+k=os.getcwd()
+ k=os.getcwd()
+      >>k='C:\\Users\\MediaHelp\\detr_application_wider_face\\Nouveau dossier'
+>>> k.strip(os.path.sep).split(os.path.sep)[-1]
+'Nouveau dossier'
+>>> k.strip(os.path.sep).split(os.path.sep)
+['C:', 'Users', 'MediaHelp', 'detr_application_wider_face', 'Nouveau dossier']
+>>>k.strip(os.path.sep).split(os.path.sep)(-1)
+               'Nouveau dossier'
+
+                               #Practice
+target_dir = "C:/Users/MediaHelp/detr_application_wider_face/Nouveau dossier/mimi"
+os.path.basename(target_dir)
+>>'mimi'
+
+from glob import glob
+
+for i, p in enumerate(glob(f'{target_dir}/*.jpg')):
+      os.rename(p, f'{target_dir}/{i}.jpg')
+
+>>>>>0.jpg, 1.jpg, etc.
+
+Example2: recursively for 2 folder 
+
+
+import os
+import glob
+from glob import glob
+import string
+Directory=os.getcwd()
+
+   #folder ="C:\Users\MediaHelp\detr_application_wider_face\Nouveau dossier"
+
+for i, folder in enumerate(os.listdir(Directory)):
+    
+      for count, filename in enumerate(glob(f'{folder}/*.jpg')):
+           
+            dst_part1 = f"part_{5}_train_{1}_{folder}_"
+            
+            dst_part2= f"{filename}".split('\\')[-1]
+            dst= f"{dst_part1}{dst_part2}"
+            dst=f"{Directory}/{folder }/{dst}"
+            os.rename(  filename, dst )
+
+
+
+
+
+
+
+
+
+#Example:
+import os
+import glob
+from glob import glob
+Directory=os.getcwd()
+
+   #folder ="C:\Users\MediaHelp\detr_application_wider_face\Nouveau dossier"
+Directory=os.getcwd()
+for i, folder in enumerate(os.listdir(Directory)):
+    
+      for count, filename in enumerate(glob(f'{folder}/*.jpg')):
+            dst = f"part_{5}_train_{1}_{folder}_{str(count)}.jpg"
+            #src = f"{Directory}/{folder }/{filename}/"
+            #dst= f"{Directory}/{folder }/{dst}"
+             os.rename(src, dst)
+
+
+
+
+                                        #Example using os.path.expanduser for global path
+% dst = f"part_{str(5)}_train_{str(5)}_airplane_{str(002)}_ {str(1)}.jpg"    :error                     
+folder = "C:/Users/MediaHelp/detr_application_wider_face/airplane_002"
+folder2= "./remamed_airplane"
+path=os.path.join(folder, folder2)
+os.mkdir(path)    
+dst = f"part_{str(5)}_train_{str(5)}_ {str(1)}.jpg"
+ src = f"{folder}/{'00000001.jpg'}"
+ folder2= "./remamed_airplane"
+dst= f"{folder2}/{dst}"
+ dst=os.path.expanduser(dst)
+os.rename(src, dst)
+
+
+
+
+#
+>>> import os
+>>> Directory=os.getcwd()
+'C:\\Users\\MediaHelp\\detr_application_wider_face\\Nouveau dossier'
+>>>Directory.strip(os.path.sep).split(os.path.sep)[-1]
+    replace(os.path.sep, '_')
+directory.replace(os.path.sep,'\')
+
+
+
+#
+
+
+                    
+
+                                       #.mat to .txt.
+
+
+import scipy.io
+import numpy as np
+
+mat = scipy.io.loadmat('matlab_totaldataset.mat')
+data= mat.get('file_list_train1_part5');
+data=np.array(data)
+
+
+
+# Displaying the array
+  file = open("sample.txt", "w+")
+# Saving the array in a text file
+  content = str(data)
+  file.write(content)
+  file.close()
+
+
+data[[1]]
+
+arr[tuple(seq)]
+
+                                    # sauvegarder les données d'un tableau de données -une marice-dans un fichie sous python.
+
+import scipy.io
+import numpy as np
+
+mat = scipy.io.loadmat('matlab_totaldataset.mat')
+data_eff= mat.get('file_list_train1_part5')
+
+mat = scipy.io.loadmat('wider_face_train')
+data_eff= mat.get('file_list')
+
+>>>>>>file_list[event_idx][0]
+event_list1(not indicated in file_list)[
+                [filename1]                            =array >>>e=  [i][j]
+                [filename2]
+                [filename3]
+                    ]
+event_list2(not indicated in file_list)
+                [filename1]
+                [filename2]
+                [filename3]
+                    ]
+                
+#array(['    '],dtype='  ')
+file_list=
+array(['    
+ [array ([ 
+               [array(['53_Raid_policeraid_53_530'], dtype='<U25')],
+               [array(['53_Raid_policeraid_53_553'], dtype='<U25')],
+               [array(['53_Raid_policeraid_53_82'], dtype='<U24')],
+               .
+               .
+               .
+               .
+        
+               [array(['53_Raid_policeraid_53_315'], dtype='<U25')]      ], 
+dtype=object)],
+
+[array([
+              
+               [array(['9_Press_Conference_Press_Conference_9_692'], dtype='<U41')],
+               [array(['9_Press_Conference_Press_Conference_9_177'], dtype='<U41')],
+               [array(['9_Press_Conference_Press_Conference_9_529'], dtype='<U41')],
+               [array(['9_Press_Conference_Press_Conference_9_394'], dtype='<U41')],
+               [array(['9_Press_Conference_Press_Conference_9_581'], dtype='<U41')],
+               [array(['9_Press_Conference_Press_Conference_9_582'], dtype='<U25')]    ], 
+dtype=' object '),   
+]
+
+]
+,dtype=' object ')
+
+>>>>>>
+
+data_eff= mat.get('event_list')
+>>>>>lsotb_to_coco.py
+
+array([  [array(['0--Parade'], dtype='<U9')],
+             [array(['1--Handshaking'], dtype='<U14')],  
+            ........
+             [array(['9--Press_Conference'], dtype='<U19')]
+          ], 
+dtype=object)
+
+so [[e1],[e2],[e3],etc]
+due to that [e1] is already an array: it is to desigh it with:  e1[0][0]
+first element:
+      path[0][0]='0--Parade'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+data_eff=np.array(data_eff)
+np.savetxt('data_eff.txt', data_eff)
+     # rename file.jpg
+
+                                                
+
+                                     # frame sequence to video:
+see: https://github.com/kkroening/ffmpeg-python :: need installation fo ffmpeg logiciel
+pip install ffmpeg-python
+ ffmpeg -framerate 25 -i "C:/Users/MediaHelp/detr_application_wider_face/airplane_002/%d.jpg" "C:/Users/MediaHelp/detr_application_wider_face/"
+ffmpeg -framerate 25 -i "C:/Users/MediaHelp/detr_application_wider_face/Nouveau dossier/momo/%d.jpg"
+
+#with opencv_python
+
+     https://theailearner.com/2018/10/15/creating-video-from-images-using-opencv-python/
+
+#
+
+#target_dir="C:/Users/MediaHelp/detr_application_wider_face/testvideogeneration/mimi"
+
+
+import cv2
+import numpy as np
+import glob
+import PIL.Image as Image
+img_array=[]
+for filename in glob.glob(f'{target_dir}/*.jpg'):
+    img = Image.open(filename)
+    (width, height)=img.size
+    size=(width, height)
+    imgcv=cv2.imread(filename)
+    img_array.append(imgcv)
+out=cv2.VideoWriter('project.avi', cv2.VideoWriter_fourcc(*'DIVX'), 15, size)
+for i in range(len(img_array)):
+    out.write(img_array[i])
+out.release()
+
+
+
+
+
+#pip install string
+   root =os.getcwd()
+Example:
+>>> root=os.getcwd()
+>> print(root)
+C:\Users\MediaHelp
+>>> root.strip(os.path.sep)
+'C:\\Users\\MediaHelp'
+>>> root.strip(os.path.sep).split(os.path.sep)
+['C:', 'Users', 'MediaHelp']
+
+
+os.getenv( "~/.cache")
+
+files = glob.glob('part_5_train_5_ 1.jpg')
+
+ path = "~/part_5_train_5_ 1.jpg"
+ full_path = os.path.expanduser(path)
+>>> full_path
+'C:\\Users\\MediaHelp/part_5_train_5_ 1.jpg'
