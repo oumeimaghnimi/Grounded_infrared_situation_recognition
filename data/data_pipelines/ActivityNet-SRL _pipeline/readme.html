@@ -2,14 +2,39 @@
 
  # -----------------------------------------------------------------------------------------------------
  
-    ActivityNet SRL (ASRL) was created  from ActivityNet Captions (AC) and ActivityNet Entities (AE) datasets by following the underling steps:
+ ActivityNet SRL (ASRL) was created  from ActivityNet Captions (AC) and ActivityNet Entities (AE) datasets by following the underling steps:
+ # ActivityNet: A Large-Scale Video Benchmark for Human Activity Understanding 2015.
+ # Dense-Captioning Events in Videos 2017.[ActivityNet Captions(AC) dataset]
+ # Grounded video description 2019: [ActivityNet-Entities dataset]
+     https://github.com/facebookresearch/grounded-video-description
+     https://github.com/facebookresearch/ActivityNet-Entities:
+            ActivityNet Entities Dataset and Challenge
+     https://paperswithcode.com/dataset/activitynet-entities-1
+     ./Téléchargements  ~ pc linux/mon PC 
 
+ # Vognet: Video Object Grounding using Semantic Roles in Language Description 2020
  # https://github.com/TheShadow29/vognet-pytorch/:
  # ActivityNet SRL (ASRL) wasused in the context of Video Object Grounding (VOG): localization of  objects in a video referred in a query sentence description.
  # Semantic role of object relations are elevated via spatial and temporal concatenation of contrastive examples sampled from  ActivityNet-SRL (ASRL).
+ # https://github.com/facebookresearch/grounded-video-description
+ # https://github.com/facebookresearch/ActivityNet-Entities#activitynet-entities-object-localization-challenge-2020
+
  
-    1. Add semantic roles to captions in AC using SRL Labeling system from AllenAI: 
+    1. Add semantic roles to captions in AC using SRL Labeling system from AllenAI, which is itself a re-implementation of a deep BiLSTM model (He et al, 2017): 
                    https://github.com/TheShadow29/vognet-pytorch/tree/master/dcode/sem_role_labeller.py
+                       http://docs.allennlp.org/v0.9.0/api/allennlp.models.semantic_role_labeler.html
+                       https://algorithmia.com/algorithms/allenai/semantic_role_labeling/docs
+                       https://demo.allennlp.org/semantic-role-labeling
+                       https://allenai.org/allennlp
+                       https://github.com/allenai/allennlp
+
+                   Bert based semantic-role labeling system:Simple bert models for relation extraction and semantic role labeling, 2019.
+                   And the implementation provided is  trained on OntoNotes5 which uses the PropBank annotation format
+                   Allennlp: A deep semantic natural language processing platform
+                       The obtained semantic-roles are cleaned using heuristics like removing verbs without any roles usually for “is”, “are” etc.
+                   spacy 2: Natural language understanding with bloom embeddings, convolutional neural networks and incremental parsing, 2017.
+                   The Stanford CoreNLP natural language processing toolkit 2014
+
     1. Prepocess AE. In particular, resize all the proposals, ground-truth bounding boxes (this is required for SPAT/TEMP).
     1. Preprocess the features and choose only 5 groundtruths for GT5 setting.
     1. Obtain the bounding boxes and category names from AE for the relevant phrases.
@@ -61,4 +86,9 @@ data
 It should ~530 gb of data !!
 
 NOTE: Highly advisable to have the features in SSD; otherwise massive drop in speed!
+
+
+# Pre-Trained Models
+   Google Drive Link for all models: https://drive.google.com/open?id=1e3FiX4FTC8n6UrzY9fTYQzFNKWHihzoQ
+   Also, see individual models (with corresponding logs) at EXPTS.md: https://github.com/TheShadow29/vognet-pytorch/blob/master/EXPTS.md
 
