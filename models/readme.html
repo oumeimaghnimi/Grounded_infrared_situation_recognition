@@ -1,3 +1,14 @@
+Input -> Tokenization -> Model Inference -> Post-Processing (task dependent) -> Output
+  Data_pipeline:                                                     preprocessed = pipe.preprocess(inputs)
+  Model_pipeline:                                                    model_outputs = pipe.forward(preprocessed)
+  Evaluation, Visualization, Analysis and performance measure        outputs = pipe.postprocess(model_outputs)
+
+  def __init__(
+                       model: 
+                       tokenizer:
+                       .....
+                      ):
+'''
 from transformers import Pipeline
 
 class MyPipeline(Pipeline):
@@ -60,3 +71,21 @@ class MyPipeline(Pipeline):
         def get_attention_maps(pixel_values, attentions, nh):
         def visualize_attention(image):
         '''
+'''
+
+
+#For Named entity recognition pipeline
+
+from transformers import pipeline
+
+ner = pipeline("ner", grouped_entities=True)
+ner("My name is Sylvain and I work at Hugging Face in Brooklyn.")
+Copied
+[{'entity_group': 'PER', 'score': 0.99816, 'word': 'Sylvain', 'start': 11, 'end': 18}, 
+ {'entity_group': 'ORG', 'score': 0.97960, 'word': 'Hugging Face', 'start': 33, 'end': 45}, 
+ {'entity_group': 'LOC', 'score': 0.99321, 'word': 'Brooklyn', 'start': 49, 'end': 57}
+]
+Here the model correctly identified that Sylvain is a person (PER), Hugging Face an organization (ORG), and Brooklyn a location (LOC).
+
+We pass the option grouped_entities=True in the pipeline creation function to tell the pipeline to regroup together the parts of the sentence that correspond to the same entity: here the model correctly grouped “Hugging” and “Face” as a single organization, even though the name consists of multiple words. In fact, as we will see in the next chapter, the preprocessing even splits some words into smaller parts. For instance, Sylvain is split into four pieces: S, ##yl, ##va, and ##in. In the post-processing step, the pipeline successfully regrouped those pieces.
+          
