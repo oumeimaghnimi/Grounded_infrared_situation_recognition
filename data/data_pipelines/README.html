@@ -1,5 +1,23 @@
 See:  https://github.com/google/graph_distillation for other utilities.
- See alo huggingface/DataformatPipeline
+ See alo huggingface/PipelineDataFormat
+ 
+ https://github.com/huggingface/transformers/blob/bbd150e92f84db72e7507d0c3ce69474b2948839/src/transformers/pipelines/base.py
+class PipelineDataFormat:
+    """
+    Base class for all the pipeline supported data format both for reading and writing. Supported data formats
+    currently includes:
+    - JSON
+    - CSV
+    - stdin/stdout (pipe)
+    `PipelineDataFormat` also includes some utilities to work with multi-columns like mapping from datasets columns to
+    pipelines keyword arguments through the `dataset_kwarg_1=dataset_column_1` format.
+    Args:
+        output_path (`str`, *optional*): Where to save the outgoing data.
+        input_path (`str`, *optional*): Where to look for the input data.
+        column (`str`, *optional*): The column to read.
+        overwrite (`bool`, *optional*, defaults to `False`):
+            Whether or not to overwrite the `output_path`.
+    """
  
  
  
