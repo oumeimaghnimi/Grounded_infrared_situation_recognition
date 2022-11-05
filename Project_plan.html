@@ -24,7 +24,7 @@
 
 0-Data generation with Latent variable models:
 
-     RGB to infrared data, diffuseurs
+    - RGB to infrared data, diffuseurs
 
              *InfraGAN: A GAN architecture to transfer visible images to infrared domain 2022(Pix2Pix, CycleGAN, thermaGAN)
              *https://towardsdatascience.com/what-are-stable-diffusion-models-and-why-are-they-a-step-forward-for-image-generation-aa1182801d46.
@@ -36,6 +36,12 @@
             *Transgan: Two transformers can make one strong gan 2021.
         LLVIP dataset can contribute to the community of computer vision by promoting image fusion, pedestrian detection and image-to-image translation 
         in very low-light applications （The wavelength: 8~14um (thermal infrared images)):pix2pixGAN, imagefusion_densefuse, FusionGAN
+
+   - data transformation, regularization and augmentation strategies timm
+   - Torchvision s' transforms API now support native object detection, segmentation &videos tasks
+         pytorch.org/blog/Extending Torchvision's Transforms to object detetcion, segmentation & videos tasks
+   - how to perform Data augmentation in NLP projects: https://bit.ly/3FGjQvD
+   -
 
 1-Supervised Learning for dense Vision tasks in infrared videos
 
@@ -140,6 +146,7 @@
                *SpaCy features fast statistical NER as well as an open-source named-entity visualizer.
 
      - Named entity recognition models in huggingface.
+     - SayCan: Do  As I can, Not as Isay: Grounding Language in Robotivs Affordances 2022(see blog, google-AI-youtube, Demo, github)
 
 Pretrained models similar to our specific task,  fine tuning with different fine-tuning schemes: see DINO may be.
 This process will also achieve better results than training from scratch (unless you have lots of data),
