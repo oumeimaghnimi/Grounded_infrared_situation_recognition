@@ -3,16 +3,19 @@ Input -> Tokenization -> Model Inference -> Post-Processing (task dependent) -> 
   Model_pipeline:                                                    model_outputs = pipe.forward(preprocessed)
   Evaluation, Visualization, Analysis and performance measure        outputs = pipe.postprocess(model_outputs)
 
-  def __init__(
+ 
+from transformers import Pipeline
+
+class MyPipeline(Pipeline):
+
+    def _sanitize_parameters(self, **kwargs):
+        '''
+           def __init__(
                        model: 
                        tokenizer:
                        .....
                       ):
-'''
-from transformers import Pipeline
-
-class MyPipeline(Pipeline):
-    def _sanitize_parameters(self, **kwargs):
+        '''
         preprocess_kwargs = {}
         if "maybe_arg" in kwargs:
             preprocess_kwargs["maybe_arg"] = kwargs["maybe_arg"]
@@ -60,14 +63,14 @@ class MyPipeline(Pipeline):
         best_class = model_outputs["logits"].softmax(-1)
         return best_class
         
-        '''
-        Maybe attention features visualization
+        '''getting the representation features from trained model
+        
         attentions=encoder_outputs.attentions,
         get attentions of last layer
         attentions = outputs.attentions[-1] 
         nh = attentions.shape[1] # number of heads
   
-        '''
+        '''Functions for visualizing features and attention maps
         def get_attention_maps(pixel_values, attentions, nh):
         def visualize_attention(image):
         '''
