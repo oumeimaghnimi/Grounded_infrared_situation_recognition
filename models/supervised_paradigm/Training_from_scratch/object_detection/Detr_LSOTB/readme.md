@@ -1,5 +1,5 @@
-HungarianMatcher for Tracking
-Exemplar Transformers for tracking
+HungarianMatcher for Tracking.
+Exemplar Transformers for tracking.
 
 
 
