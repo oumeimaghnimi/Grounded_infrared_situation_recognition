@@ -18,3 +18,22 @@
 1. `transformer_code.py` has the transformer implementation, also has the relative transformer which uses relative position encoding (RPE).
 
 Some other useful files are under [`utils`](../utils/)
+code/main_dist.py :
+
+    dat_loader_simple.py
+    mdl_selector.py
+    /utils/trn_utils.py
+    extended_config.py
+   /configs/anet_srl_cfg.yml
+   mdl_selector.py
+   mdl_vog.py
+   _init_stuff.py:
+   mdl_vog.py
+
+
+
+2.https://github.com/TheShadow29/vognet-pytorch/blob/master/EXPTS.md
+
+
+3- code/eval_fn_corr.py
+
