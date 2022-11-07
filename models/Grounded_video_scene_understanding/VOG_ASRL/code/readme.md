@@ -32,8 +32,7 @@ code/main_dist.py :
 
 
 
-2.https://github.com/TheShadow29/vognet-pytorch/blob/master/EXPTS.md
+https://github.com/TheShadow29/vognet-pytorch/blob/master/EXPTS.md
 
-
-3- code/eval_fn_corr.py
+code/eval_fn_corr.py
 
