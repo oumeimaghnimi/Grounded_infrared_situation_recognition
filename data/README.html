@@ -4,9 +4,11 @@ https://ai.googleblog.com/2022/03/co-training-transformer-with-videos-and.html:
       *CoVeR adopts a multi-task learning strategy trained on multiple datasets, each with their own classifier.
          TimeSFormer, Video SwinTransformer, TokenLearner, ViViT, MoViNet, VATT, VidTr, and OmniSource 
 
+0-1 Infar Dataset: infrared action recognition at different times, 2020.
 
+0-2Transferable Feature Representation for Visible-to-Infrared Cross-Dataset Human Action Recognition 2019
 
-Actions can be represented using various data modalities:
+1-Actions can be represented using various data modalities:
           RGB, skeleton, depth, infrared, point cloud,event stream, audio, acceleration, radar, and WiFi signal,
           which encode different sources of useful yet distinct information and have various advantages depending on the application scenarios.
           
@@ -139,8 +141,68 @@ Preprocessing multi-modal data:
          Infrared Imagery Datasets
          ATR algorithm
   
+*github.com//jinwchoi/awesome-action-recognition*
+     Action Recognition Datasets
+           -Video Dataset Overview from Antoine Miech
+           -HACS
+           -Moments in Time, paper
+           -AVA, paper, [INRIA web] for missing videos
+           -Kinetics, paper, download toolkit
+           -OOPS - A dataset of unintentional action, paper
+           -COIN - a large-scale dataset for comprehensive instructional video analysis, paper
+           -YouTube-8M, technical report
+           -YouTube-BB, technical report
+           -DALY Daily Action Localization in Youtube videos. Note: Weakly supervised action detection dataset. Annotations consist of start and end time of each action, one bounding box per each action per video.
+           -20BN-JESTER, 20BN-SOMETHING-SOMETHING
+           -ActivityNet Note: They provide a download script and evaluation code here .
+           -Charades
+           -Charades-Ego, paper - First person and third person video aligned dataset
+           -EPIC-Kitchens, paper - First person videos recorded in kitchens. Note they provide download scripts and a python library here
+           -Sports-1M - Large scale action recognition dataset.
+           -THUMOS14 Note: It overlaps with UCF-101 dataset.
+           -THUMOS15 Note: It overlaps with UCF-101 dataset.
+           -HOLLYWOOD2: Spatio-Temporal annotations
+           -UCF-101, annotation provided by THUMOS-14, and corrupted annotation list, UCF-101 corrected annotations and different version annotaions. And there are also some pre-computed spatiotemporal action detection results
+           -UCF-50.
+           -UCF-Sports, note: the train/test split link in the official website is broken. Instead, you can download it from here.
+           -HMDB
+           -J-HMDB
+           -LIRIS-HARL
+           -KTH
+           -MSR Action Note: It overlaps with KTH datset.
+           -Sports Videos in the Wild
+           -NTU RGB+D
+           -Mixamo Mocap Dataset
+           -UWA3D Multiview Activity II Dataset
+           -Northwestern-UCLA Dataset
+           -SYSU 3D Human-Object Interaction Dataset
+           -MEVA (Multiview Extended Video with Activities) Dataset
+       Video Annotation
+           -Efficiently scaling up crowdsourced video annotation - C. Vondrick et. al, IJCV2013. [code]
+           -The Design and Implementation of ViPER - D. Mihalcik and D. Doermann, Technical report.
+           -VTT: Visual Object Tagging Tool. Modern app to annotate objects in videos and images. It facilitates the development of an end-to-end machine learning pipeline encompassing the annotation/export/import of assets. Moreover, it could run as a native app or via web.
+           -VIA: VGG Image Annotator. Simple and standalone manual annotation web-app for image, audio and video. It runs in the web browser and does not require any installation or setup.
+       Object Recognition
+           -Object Detection
+           -Video Object Detection
+                 Detect to Track and Track to Detect] - C. Feichtenhofer et al., ICCV2017. [code], [project web]
+                     https://www.robots.ox.ac.uk/~vgg/research/detect-track/
+                     https://github.com/feichtenhofer/detect-track
+      Video Object Detection Datasets
+          -ImageNet VID
+          -YouTube-8M, technical report
+          -YouTube-BB, technical report
 
- 
+      Pose Estimation
+         -AlphaPose - PyTorch based realtime and accurate pose estimation and tracking tool from SJTU.
+         -Detect-and-Track: Efficient Pose Estimation in Videos - R. Girdhar et al., arXiv2017.
+         -OpenPose Library - Caffe based realtime pose estimation library from CMU.
+         -Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields - Z. Cao et al, CVPR2017. [code] depends on the [caffe RT pose] - Earlier version of OpenPose from CMU.
+         -DensePose [code] - Dense pose human estimation in the wild implemented in the Detectron framework.
+         -MultiPoseNet: Fast Multi-Person Pose Estimation using Pose Residual Network - M. Kocabas et al, ECCV2018. [code]
+         -DeepLabCut: markerless pose estimation of user-defined body parts with deep learning - A. Mathis et al, Nature Neuroscience 2018. [code]
+      Competitions
+         -ActEV (Activities in Extended Video - Activity detection in security camera videos. Runs through 2021. Hosted by NIST.
 
 
  
