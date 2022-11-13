@@ -9,24 +9,26 @@ sometimes  train script is in format .sh
 
 The Trainer class provides an API for feature-complete training in PyTorch for most standard use cases. It’s used in most of the example scripts.
 
-Before instantiating your Trainer, create a TrainingArguments to access all the points of customization during training.
+Before instantiating your Trainer, create a TrainingArguments to access all the points of customization during training:
+       a-https://huggingface.co/docs/transformers/v4.24.0/en/main_classes/trainer#transformers.TrainingArguments
+         https://github.com/huggingface/transformers/blob/v4.24.0/src/transformers/training_args.py#L121
 
 The API supports distributed training on multiple GPUs/TPUs, mixed precision through NVIDIA Apex and Native AMP for PyTorch.
 
 The Trainer contains the basic training loop which supports the above features. To inject custom behavior you can subclass them and override the following methods:
 
-get_train_dataloader — Creates the training DataLoader.
-get_eval_dataloader — Creates the evaluation DataLoader.
-get_test_dataloader — Creates the test DataLoader.
-log — Logs information on the various objects watching training.
-create_optimizer_and_scheduler — Sets up the optimizer and learning rate scheduler if they were not passed at init. Note, that you can also subclass or override the create_optimizer and create_scheduler methods separately.
-create_optimizer — Sets up the optimizer if it wasn’t passed at init.
-create_scheduler — Sets up the learning rate scheduler if it wasn’t passed at init.
-compute_loss - Computes the loss on a batch of training inputs.
-training_step — Performs a training step.
-prediction_step — Performs an evaluation/test step.
-evaluate — Runs an evaluation loop and returns metrics.
-predict — Returns predictions (with metrics if labels are available) on a test set.
+          b-get_train_dataloader — Creates the training DataLoader.
+          c-get_eval_dataloader — Creates the evaluation DataLoader.
+          d-get_test_dataloader — Creates the test DataLoader.
+          e-log — Logs information on the various objects watching training.
+          f-create_optimizer_and_scheduler — Sets up the optimizer and learning rate scheduler if they were not passed at init. Note, that you can also subclass or override the create_optimizer and create_scheduler methods separately.
+          g-create_optimizer — Sets up the optimizer if it wasn’t passed at init.
+          i-create_scheduler — Sets up the learning rate scheduler if it wasn’t passed at init.
+          j-compute_loss - Computes the loss on a batch of training inputs.
+          k-training_step — Performs a training step.
+          l-prediction_step — Performs an evaluation/test step.
+          m-evaluate — Runs an evaluation loop and returns metrics.
+          n-predict — Returns predictions (with metrics if labels are available) on a test set.
 The Trainer class is optimized for 🤗 Transformers models and can have surprising behaviors when you use it on other models. When using it on your own model, make sure:
 
 your model always return tuples or subclasses of ModelOutput.
