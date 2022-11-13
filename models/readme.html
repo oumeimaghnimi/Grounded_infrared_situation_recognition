@@ -1,7 +1,13 @@
 sometimes  train script is in format .sh 
      bash train.sh
-
-
+     
+     
+*Image pretraining examples:
+     https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-pretraining: 
+         Supervised: ViT, Swin Transformer,
+         self supervised: SimMIM (by Microsoft Research), MAE (by Facebook AI).
+         
+         
 Input -> Tokenization -> Model Inference -> Post-Processing (task dependent) -> Output
   Data_pipeline:                                                     preprocessed = pipe.preprocess(inputs)
   Model_pipeline:                                                    model_outputs = pipe.forward(preprocessed)
