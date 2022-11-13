@@ -53,9 +53,24 @@ class CustomTrainer(Trainer):
         loss_fct = nn.CrossEntropyLoss(weight=torch.tensor([1.0, 2.0, 3.0]))
         loss = loss_fct(logits.view(-1, self.model.config.num_labels), labels.view(-1))
         return (loss, outputs) if return_outputs else loss
-Another way to customize the training loop behavior for the PyTorch Trainer is to use callbacks that can inspect the training loop state (for progress reporting, logging on TensorBoard or other ML platforms…) and take decisions (like early stopping).
-https://github.com/NVIDIA/apex
-         
+Another way to customize the training loop behavior for the PyTorch Trainer is to use callbacks
+that can inspect the training loop state (for progress reporting, logging on TensorBoard or other ML platforms…)
+and take decisions (like early stopping).
+     -https://huggingface.co/docs/transformers/v4.24.0/en/main_classes/callback#transformers.TrainerCallback
+     -https://huggingface.co/docs/transformers/main_classes/callback
+         By default a Trainer will use the following callbacks:
+            -DefaultFlowCallback which handles the default behavior for logging, saving and evaluation.
+            -PrinterCallback or ProgressCallback to display progress and print the logs (the first one is used if you deactivate tqdm through the TrainingArguments, otherwise it’s the second one).
+            -TensorBoardCallback if tensorboard is accessible (either through PyTorch >= 1.4 or tensorboardX).
+            -WandbCallback if wandb is installed.
+            -CometCallback if comet_ml is installed.
+            -MLflowCallback if mlflow is installed.
+            -NeptuneCallback if neptune is installed.
+            -AzureMLCallback if azureml-sdk is installed.
+            -CodeCarbonCallback if codecarbon is installed.
+
+     The main class that implements callbacks is TrainerCallback.It gets the TrainingArguments used to instantiate the Trainer, can access that Trainer’s internal state via TrainerState,
+     and can take some actions on the training loop via TrainerControl.
          
 Input -> Tokenization -> Model Inference -> Post-Processing (task dependent) -> Output
   Data_pipeline:                                                     preprocessed = pipe.preprocess(inputs)
