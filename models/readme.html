@@ -6,6 +6,51 @@ sometimes  train script is in format .sh
      https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-pretraining: 
          Supervised: ViT, Swin Transformer,
          self supervised: SimMIM (by Microsoft Research), MAE (by Facebook AI).
+
+The Trainer class provides an API for feature-complete training in PyTorch for most standard use cases. It’s used in most of the example scripts.
+
+Before instantiating your Trainer, create a TrainingArguments to access all the points of customization during training.
+
+The API supports distributed training on multiple GPUs/TPUs, mixed precision through NVIDIA Apex and Native AMP for PyTorch.
+
+The Trainer contains the basic training loop which supports the above features. To inject custom behavior you can subclass them and override the following methods:
+
+get_train_dataloader — Creates the training DataLoader.
+get_eval_dataloader — Creates the evaluation DataLoader.
+get_test_dataloader — Creates the test DataLoader.
+log — Logs information on the various objects watching training.
+create_optimizer_and_scheduler — Sets up the optimizer and learning rate scheduler if they were not passed at init. Note, that you can also subclass or override the create_optimizer and create_scheduler methods separately.
+create_optimizer — Sets up the optimizer if it wasn’t passed at init.
+create_scheduler — Sets up the learning rate scheduler if it wasn’t passed at init.
+compute_loss - Computes the loss on a batch of training inputs.
+training_step — Performs a training step.
+prediction_step — Performs an evaluation/test step.
+evaluate — Runs an evaluation loop and returns metrics.
+predict — Returns predictions (with metrics if labels are available) on a test set.
+The Trainer class is optimized for 🤗 Transformers models and can have surprising behaviors when you use it on other models. When using it on your own model, make sure:
+
+your model always return tuples or subclasses of ModelOutput.
+your model can compute the loss if a labels argument is provided and that loss is returned as the first element of the tuple (if your model returns tuples)
+your model can accept multiple label arguments (use the label_names in your TrainingArguments to indicate their name to the Trainer) but none of them should be named "label".
+Here is an example of how to customize Trainer to use a weighted loss (useful when you have an unbalanced training set):
+
+Copied
+from torch import nn
+from transformers import Trainer
+
+
+class CustomTrainer(Trainer):
+    def compute_loss(self, model, inputs, return_outputs=False):
+        labels = inputs.get("labels")
+        # forward pass
+        outputs = model(**inputs)
+        logits = outputs.get("logits")
+        # compute custom loss (suppose one has 3 labels with different weights)
+        loss_fct = nn.CrossEntropyLoss(weight=torch.tensor([1.0, 2.0, 3.0]))
+        loss = loss_fct(logits.view(-1, self.model.config.num_labels), labels.view(-1))
+        return (loss, outputs) if return_outputs else loss
+Another way to customize the training loop behavior for the PyTorch Trainer is to use callbacks that can inspect the training loop state (for progress reporting, logging on TensorBoard or other ML platforms…) and take decisions (like early stopping).
+https://github.com/NVIDIA/apex
          
          
 Input -> Tokenization -> Model Inference -> Post-Processing (task dependent) -> Output
