@@ -373,6 +373,12 @@ see also: H:\Deep learning_Infrared images or video\Transformers\Papers_to work 
     multi-scale, distractor, etc.
       Attention-Based Multi-Task Learning For Fine-Grained Image Classification 2021.
 6-Fusion :   
+Several choices are available for fusion, including late fusion, mid-fusion or early fusion .
+Early fusion integrates features extracted from multiple modalities, and uses the integrated feature representation for learning downstream tasks.
+On the other hand, late fusion integrates classification scores of different features [poria2017review] to obtain the final classification score.
+Whether it is early or late fusion, different fusion strategies exist. These include Concat fusion , where different features are concatenated first and input into a MLP to get an integrated feature, as well as Set-based fusion  
+that is based on permutation invariant functions or Graph-based fusion modules.
+
      MFAS: Multimodal Fusion Architecture 2020.
      Multimodal Fusion Refiner Networks 2021
    
